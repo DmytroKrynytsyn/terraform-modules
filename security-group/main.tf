@@ -1,6 +1,6 @@
 
 resource "aws_security_group" "sg" {
-  name_prefix = "sg-"
+  //name_prefix = "sg-"
   vpc_id      = var.vpc_id
 
   dynamic "ingress" {
