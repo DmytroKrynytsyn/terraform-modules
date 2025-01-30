@@ -1,0 +1,36 @@
+provider "aws" {
+  region = var.aws_region  
+}
+
+data "aws_vpc" "default" {
+  default = true
+}
+
+data "aws_subnets" "default" {
+  filter {
+    name   = "vpc-id"
+    values = [data.aws_vpc.default.id]
+  }
+}
+
+module "security_group" {
+  source = "git::https://github.com/DmytroKrynytsyn/terraform-modules.git//infrastructure/security-group"
+  my_ip    = var.my_ip
+  vpc_id   = data.aws_vpc.default.id
+  ingress_ports    = [22, 9092, 9093] 
+  
+  tags = var.instance_tags
+}
+
+module "asg-ec2" {
+  source = "git::https://github.com/DmytroKrynytsyn/terraform-modules.git//infrastructure/asg-ec2"
+  
+  desired_amount_of_instances = var.desired_amount_of_instances
+  min_amount_of_instances = var.min_amount_of_instances
+  max_amount_of_instances = var.max_amount_of_instances
+  instance_type = var.instance_type
+  ami_id = var.ami_id
+  vpc_zone_identifier = data.aws_subnets.default.ids
+
+  tags = var.instance_tags
+}
