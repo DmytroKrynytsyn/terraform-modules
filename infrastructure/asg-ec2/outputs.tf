@@ -1,3 +1,10 @@
+data "aws_instances" "asg_instances" {
+  filter {
+    name   = "tag:aws:autoscaling:groupName"
+    values = [aws_autoscaling_group.asg.name]
+  }
+}
+
 output "private_ips" {
-  value = aws_autoscaling_group.instanes.instances[*].private_ip
+  value = data.aws_instances.asg_instances.private_ips
 }
