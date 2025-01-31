@@ -11,3 +11,4 @@ dist/
 *.pem
 .vscode
 .terraform
+terraform.tfstate*
