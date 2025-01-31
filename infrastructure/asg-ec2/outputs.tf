@@ -1,7 +1,7 @@
 data "aws_instances" "asg_instances" {
   filter {
     name   = "tag:aws:autoscaling:groupName"
-    values = [aws_autoscaling_group.asg.name]
+    values = [aws_autoscaling_group.instanes.name]
   }
 }
 
