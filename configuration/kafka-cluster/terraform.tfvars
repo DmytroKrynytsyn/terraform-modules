@@ -6,6 +6,8 @@ amount_of_brokers = "3"
 
 my_ip             = "93.202.227.251/32"
 
+key_name          = "cks"
+
 tags = {
   Name    = "kafka"
   Purpose = "dkedu"

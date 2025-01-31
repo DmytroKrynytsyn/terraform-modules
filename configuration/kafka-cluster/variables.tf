@@ -28,3 +28,7 @@ variable "tags" {
   description = "The tags to apply to the EC2 instance."
   type        = map(string)
 }
+
+variable "key_name" {
+  description = "The key name to use for the EC2 instance."
+}

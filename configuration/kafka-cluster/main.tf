@@ -32,5 +32,7 @@ module "asg-ec2" {
   ami_id = var.ami_id
   vpc_zone_identifier = data.aws_subnets.default.ids
 
+  key_name = var.key_name
+
   tags = var.tags
 }

@@ -32,3 +32,8 @@ variable "tags" {
   description = "The tags to apply to the security group."
   type        = map(string)
 }
+
+variable "key_name" {
+  description = "The key name to use for the instances"
+  type        = string
+}
