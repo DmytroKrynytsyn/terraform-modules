@@ -19,18 +19,18 @@ module "security_group" {
   vpc_id   = data.aws_vpc.default.id
   ingress_ports    = [22, 9092, 9093] 
   
-  tags = var.instance_tags
+  tags = var.tags
 }
 
 module "asg-ec2" {
   source = "git::https://github.com/DmytroKrynytsyn/terraform-modules.git//infrastructure/asg-ec2"
   
-  desired_amount_of_instances = var.desired_amount_of_instances
-  min_amount_of_instances = var.min_amount_of_instances
-  max_amount_of_instances = var.max_amount_of_instances
+  desired_amount_of_instances = var.amount_of_brokers
+  min_amount_of_instances = var.amount_of_brokers
+  max_amount_of_instances = var.amount_of_brokers * 2
   instance_type = var.instance_type
   ami_id = var.ami_id
   vpc_zone_identifier = data.aws_subnets.default.ids
 
-  tags = var.instance_tags
+  tags = var.tags
 }

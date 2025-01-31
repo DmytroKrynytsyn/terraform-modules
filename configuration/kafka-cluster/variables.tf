@@ -24,12 +24,7 @@ variable "amount_of_brokers" {
   default     = 3
 }
 
-variable "instance_tags" {
+variable "tags" {
   description = "The tags to apply to the EC2 instance."
   type        = map(string)
-  default     = {
-    Name    = "kafka"
-    Purpose = "dkedu"
-    Stack   = "kafka1"
-  }
 }
