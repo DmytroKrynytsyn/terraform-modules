@@ -34,5 +34,7 @@ module "asg-ec2" {
 
   key_name = var.key_name
 
+  security_group_ids = [module.security_group.security_group_id]
+
   tags = var.tags
 }

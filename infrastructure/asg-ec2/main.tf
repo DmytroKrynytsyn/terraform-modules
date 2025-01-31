@@ -7,7 +7,7 @@ resource "aws_launch_template" "kafka_brokers" {
   instance_type = var.instance_type
   key_name  = var.key_name
 
-  vpc_security_group_ids = [module.security_group.security_group_id]
+  vpc_security_group_ids = var.security_group_ids
 
   tag_specifications {
     resource_type = "instance"

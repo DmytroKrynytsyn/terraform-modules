@@ -28,6 +28,11 @@ variable "max_amount_of_instances" {
   type        = number
 }
 
+variable "security_group_ids" {
+  description = "A list of security group IDs to associate with the instances"
+  type        = list(string)
+}
+
 variable "tags" {
   description = "The tags to apply to the security group."
   type        = map(string)
