@@ -18,8 +18,11 @@ module "security_group" {
   my_ip    = var.my_ip
   vpc_id   = data.aws_vpc.default.id
   ingress_ports    = [22, 9092, 9093] 
-  
-  tags = var.tags
+
+   tags = {
+      "StackName" = var.stack_name
+      "ClusterName" = var.cluster_name
+    }
 }
 
 module "asg-ec2" {
@@ -36,5 +39,9 @@ module "asg-ec2" {
 
   security_group_ids = [module.security_group.security_group_id]
 
-  tags = var.tags
+  tags = {
+    "StackName" = var.stack_name
+    "ClusterName" = var.cluster_name
+    "InstanceRole" =  var.instance_role
+  }
 }

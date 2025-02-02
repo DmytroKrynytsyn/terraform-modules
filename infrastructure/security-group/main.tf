@@ -23,5 +23,8 @@ resource "aws_security_group" "sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = var.tags
+  tags = {
+    Name = var.tags["StackName"] + var.tags["ClusterName"]
+    Stack = var.tags["StackName"]
+  }
 }

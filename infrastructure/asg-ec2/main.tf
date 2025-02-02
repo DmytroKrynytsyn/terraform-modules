@@ -1,5 +1,3 @@
-
-
 resource "aws_launch_template" "kafka_brokers" {
   name = var.tags["Name"]
   
@@ -11,7 +9,11 @@ resource "aws_launch_template" "kafka_brokers" {
 
   tag_specifications {
     resource_type = "instance"
-    tags = var.tags 
+    tags = {
+      Name = var.tags["StackName"] + var.tags["ClusterName"]
+      Role = var.tags["InstanceRole"]
+      Stack = var.tags["StackName"]
+    }
   }
 }
 
