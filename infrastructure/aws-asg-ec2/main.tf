@@ -1,5 +1,4 @@
 resource "aws_launch_template" "kafka_brokers" {
-  name = var.tags["Name"]
   
   image_id = var.ami_id
   instance_type = var.instance_type
@@ -10,16 +9,16 @@ resource "aws_launch_template" "kafka_brokers" {
   tag_specifications {
     resource_type = "instance"
     tags = {
-      Name = var.tags["StackName"] + var.tags["ClusterName"]
-      Role = var.tags["InstanceRole"]
-      Stack = var.tags["StackName"]
+      Name = var.tags["stack_name"] + var.tags["cluster_name"]
+      Role = var.tags["instance_role"]
+      Stack = var.tags["stack_name"]
     }
   }
 }
 
 
 resource "aws_autoscaling_group" "instanes" {
-  name = var.tags["Name"]
+  name = var.tags["stack_name"] + var.tags["cluster_name"]
 
   desired_capacity     = var.desired_amount_of_instances
   min_size             = var.min_amount_of_instances

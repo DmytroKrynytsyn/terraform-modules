@@ -6,13 +6,19 @@ variable "vpc_id" {
   description = "The ID of the VPC."
 }
 
-variable "tags" {
-  description = "The tags to apply to the security group."
-  type        = map(string)
-}
-
 variable "ingress_ports" {
   description = "The list of ports to open in the security group."
   type        = list(number)
 }
 
+variable "stack_name" {
+  description = "The name of the stack."
+}
+
+variable "cluster_name" {
+  description = "The name of the cluster."
+}  
+
+variable "instance_role" {
+  description = "The role of the instance."
+}

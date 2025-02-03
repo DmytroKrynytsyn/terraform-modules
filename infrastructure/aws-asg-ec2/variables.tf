@@ -33,12 +33,19 @@ variable "security_group_ids" {
   type        = list(string)
 }
 
-variable "tags" {
-  description = "The tags to apply to the security group."
-  type        = map(string)
-}
-
 variable "key_name" {
   description = "The key name to use for the instances"
   type        = string
+}
+
+variable "stack_name" {
+  description = "The name of the stack."
+}
+
+variable "cluster_name" {
+  description = "The name of the cluster."
+}  
+
+variable "instance_role" {
+  description = "The role of the instance."
 }

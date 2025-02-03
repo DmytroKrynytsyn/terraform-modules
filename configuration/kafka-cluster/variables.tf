@@ -24,11 +24,18 @@ variable "amount_of_brokers" {
   default     = 3
 }
 
-variable "tags" {
-  description = "The tags to apply to the EC2 instance."
-  type        = map(string)
-}
-
 variable "key_name" {
   description = "The key name to use for the EC2 instance."
+}
+
+variable "stack_name" {
+  description = "The name of the stack."
+}
+
+variable "cluster_name" {
+  description = "The name of the cluster."
+}  
+
+variable "instance_role" {
+  description = "The role of the instance."
 }
