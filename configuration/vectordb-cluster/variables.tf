@@ -24,5 +24,20 @@ variable "s3_bucket_name" {
 
 variable "my_ip" {
   description = "The CIDR allowed to access the instance."
-  default     = "89.247.166.160/32"  # Replace with your actual IP address
 }
+
+variable "key_name" {
+  description = "The key name to use for the EC2 instance."
+}
+
+variable "stack_name" {
+  description = "The name of the stack."
+}
+
+variable "cluster_name" {
+  description = "The name of the cluster."
+}  
+
+variable "vectordb_instance_role" {
+  description = "The role of the Prometheus instance."
+} 

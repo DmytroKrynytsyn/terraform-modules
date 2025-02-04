@@ -12,10 +12,19 @@ module "security_group" {
     }
 }
 
+module "iam_s3_policy" {
+  source = "git::https://github.com/DmytroKrynytsyn/terraform-modules.git//infrastructure/aws-iam-policy-s3"
+  s3_bucket_name = var.s3_bucket_name
+
+  tags = {
+      "StackName" = var.stack_name
+      "ClusterName" = var.cluster_name
+    }
+}
 
 resource "aws_iam_instance_profile" "ec2_instance_profile" {
   name = "ec2-instance-profile"
-  role = var.ec2_role_name
+  role = iam_s3_policy.ec2_role.name
 }
 
 resource "aws_instance" "vector_db" {
@@ -23,9 +32,9 @@ resource "aws_instance" "vector_db" {
   instance_type = var.instance_type
   security_groups = [aws_security_group.security_group.name]
 
-  iam_instance_profile = aws_iam_instance_profile.ec2_instance_profile.name
+  key_name = var.key_name
 
-  key_name = "cks"
+  iam_instance_profile = aws_iam_instance_profile.ec2_instance_profile.name
 
   root_block_device {
     volume_type = "gp2"
@@ -33,8 +42,8 @@ resource "aws_instance" "vector_db" {
   }
 
   tags = {
-    Name = "vectordb"
-    Purpose = "dkedu"
-    Role = "vector_db"
+    "StackName" = var.stack_name
+    "ClusterName" = var.cluster_name
+    "InstanceRole" =  var.vectordb_instance_role
   }
 }
