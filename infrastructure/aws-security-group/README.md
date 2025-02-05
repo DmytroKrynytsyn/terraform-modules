@@ -11,7 +11,8 @@ module "security_group" {
   vpc_id   = "YOUR_VPC_ID"
   ingress_ports    = [80, 443]  # List of ports to open
   tags     = {
-    Name = "MySecurityGroup"
+    "StackName" = "MyStack"
+    "ClusterName" = "MyCluster"
   }
 }
 ```
