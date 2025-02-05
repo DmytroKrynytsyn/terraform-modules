@@ -1,18 +1,3 @@
-provider "aws" {
-  region = var.aws_region  
-}
-
-data "aws_vpc" "default" {
-  default = true
-}
-
-data "aws_subnets" "default" {
-  filter {
-    name   = "vpc-id"
-    values = [data.aws_vpc.default.id]
-  }
-}
-
 module "security_group" {
   source = "git::https://github.com/DmytroKrynytsyn/terraform-modules.git//infrastructure/security-group"
   my_ip    = var.my_ip

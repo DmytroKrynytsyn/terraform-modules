@@ -1,5 +1,3 @@
-
-
 module "security_group" {
   source = "git::https://github.com/DmytroKrynytsyn/terraform-modules.git//infrastructure/security-group"
   my_ip    = var.my_ip
