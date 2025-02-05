@@ -3,21 +3,21 @@
 
 
 
-resource "aws_instance" "redis_primary" {
+resource "aws_instance" "prometheus_primary" {
   ami           = var.ami_id
   instance_type = var.instance_type
   security_groups = [aws_security_group.security_group.name]
 
-  key_name = "cks"
+  key_name = var.key_name
 
   tags = {
     "StackName" = var.stack_name
     "ClusterName" = var.cluster_name
-    "InstanceRole" =  var.redis_primary_instance_role
+    "InstanceRole" =  var.prometheus_instance_role
   }
 }
 
-resource "aws_instance" "redis_secondary" {
+resource "aws_instance" "grafana" {
   ami           = var.ami_id
   instance_type = var.instance_type
   security_groups = [aws_security_group.security_group.name]
@@ -27,7 +27,7 @@ resource "aws_instance" "redis_secondary" {
   tags = {
     "StackName" = var.stack_name
     "ClusterName" = var.cluster_name
-    "InstanceRole" =  var.redis_secondary_instance_role
+    "InstanceRole" =  var.grafana_instance_role
   }
 }
 
