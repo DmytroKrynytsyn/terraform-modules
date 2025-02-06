@@ -21,7 +21,7 @@ resource "aws_iam_instance_profile" "ec2_instance_profile" {
 resource "aws_instance" "vectordb" {
   ami           = var.ami_id
   instance_type = var.instance_type
-  security_groups = [aws_security_group.security_group.name]
+  security_groups = [module.security_group.security_group_id]
 
   key_name = var.key_name
 

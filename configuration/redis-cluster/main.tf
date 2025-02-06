@@ -12,7 +12,7 @@ module "security_group" {
 resource "aws_instance" "redis_primary" {
   ami           = var.ami_id
   instance_type = var.instance_type
-  security_groups = [aws_security_group.security_group.name]
+  security_groups = [module.security_group.security_group_id]
 
   key_name = var.key_name
 
@@ -26,7 +26,7 @@ resource "aws_instance" "redis_primary" {
 resource "aws_instance" "redis_secondary" {
   ami           = var.ami_id
   instance_type = var.instance_type
-  security_groups = [aws_security_group.security_group.name]
+  security_groups = [module.security_group.security_group_id]
 
   key_name = var.key_name
 
