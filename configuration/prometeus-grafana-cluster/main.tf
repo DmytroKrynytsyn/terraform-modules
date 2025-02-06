@@ -14,6 +14,7 @@ resource "aws_instance" "prometheus_primary" {
     "StackName" = var.stack_name
     "ClusterName" = var.cluster_name
     "InstanceRole" =  var.prometheus_instance_role
+    "Name" = "${var.stack_name}-${var.cluster_name}"
   }
 }
 
@@ -28,6 +29,7 @@ resource "aws_instance" "grafana" {
     "StackName" = var.stack_name
     "ClusterName" = var.cluster_name
     "InstanceRole" =  var.grafana_instance_role
+    "Name" = "${var.stack_name}-${var.cluster_name}"
   }
 }
 
@@ -52,6 +54,7 @@ resource "aws_instance" "prometheus" {
     "StackName" = var.stack_name
     "ClusterName" = var.cluster_name
     "InstanceRole" =  var.prometheus_instance_role
+    "Name" = "${var.stack_name}-${var.cluster_name}"
   }
 }
 
@@ -66,6 +69,7 @@ resource "aws_instance" "grafana" {
     "StackName" = var.stack_name
     "ClusterName" = var.cluster_name
     "InstanceRole" =  var.grafana_instance_role
+    "Name" = "${var.stack_name}-${var.cluster_name}"
   }
 }
 

@@ -9,7 +9,7 @@ module "security_group" {
 }
 
 module "asg-ec2" {
-  source = "git::https://github.com/DmytroKrynytsyn/terraform-modules.git//infrastructure/asg-ec2"
+  source = "git::https://github.com/DmytroKrynytsyn/terraform-modules.git//infrastructure/aws-asg-ec2"
   
   desired_amount_of_instances = var.amount_of_brokers
   min_amount_of_instances = var.amount_of_brokers
@@ -22,9 +22,7 @@ module "asg-ec2" {
 
   security_group_ids = [module.security_group.security_group_id]
 
-  tags = {
-    "StackName" = var.stack_name
-    "ClusterName" = var.cluster_name
-    "InstanceRole" =  var.instance_role
-  }
+  stack_name = var.stack_name
+  cluster_name = var.cluster_name
+  instance_role =  var.instance_role
 }

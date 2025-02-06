@@ -20,6 +20,7 @@ resource "aws_instance" "redis_primary" {
     "StackName" = var.stack_name
     "ClusterName" = var.cluster_name
     "InstanceRole" =  var.redis_primary_instance_role
+    "Name" = "${var.stack_name}-${var.cluster_name}"
   }
 }
 
@@ -34,5 +35,6 @@ resource "aws_instance" "redis_secondary" {
     "StackName" = var.stack_name
     "ClusterName" = var.cluster_name
     "InstanceRole" =  var.redis_secondary_instance_role
+    "Name" = "${var.stack_name}-${var.cluster_name}"
   }
 }

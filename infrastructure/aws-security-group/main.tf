@@ -24,5 +24,6 @@ resource "aws_security_group" "sg" {
   tags = {
     Name = "${var.stack_name}-${var.cluster_name}"
     Stack = var.stack_name
+    Cluster = var.cluster_name
   }
 }
