@@ -1,3 +1,7 @@
+variable "vpc_id" {
+  description = "The ID of the VPC."
+}
+
 variable "ami_id" {
   description = "The AMI ID to use for the EC2 instance."
 }
