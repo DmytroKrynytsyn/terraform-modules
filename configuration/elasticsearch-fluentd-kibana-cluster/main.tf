@@ -4,10 +4,8 @@ module "security_group" {
   vpc_id   = var.vpc_id
   ingress_ports    = [22, 5601, 24224, 9200] 
 
-  tags = {
-      "StackName" = var.stack_name
-      "ClusterName" = var.cluster_name
-    }
+  stack_name = var.stack_name
+  cluster_name = var.cluster_name
 }
 
 resource "aws_instance" "fluentd" {

@@ -4,10 +4,8 @@ module "security_group" {
   vpc_id   = data.aws_vpc.default.id
   ingress_ports    = [22, 9092, 9093] 
 
-   tags = {
-      "StackName" = var.stack_name
-      "ClusterName" = var.cluster_name
-    }
+  stack_name = var.stack_name
+  cluster_name = var.cluster_name
 }
 
 module "asg-ec2" {

@@ -10,10 +10,8 @@ module "security_group" {
   my_ip    = "YOUR_IP/CIDR"
   vpc_id   = "YOUR_VPC_ID"
   ingress_ports    = [80, 443]  # List of ports to open
-  tags     = {
-    "StackName" = "MyStack"
-    "ClusterName" = "MyCluster"
-  }
+  stack_name = stack_name
+  cluster_name = cluster_name
 }
 ```
 

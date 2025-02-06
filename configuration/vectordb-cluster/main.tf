@@ -4,10 +4,8 @@ module "security_group" {
   vpc_id   = var.vpc_id
   ingress_ports    = [22, 80, 19530] 
 
-  tags = {
-      "StackName" = var.stack_name
-      "ClusterName" = var.cluster_name
-    }
+  stack_name = var.stack_name
+  cluster_name = var.cluster_name
 }
 
 module "iam_s3_policy" {

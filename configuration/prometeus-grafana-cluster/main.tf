@@ -37,10 +37,8 @@ module "security_group" {
   vpc_id   = var.vpc_id
   ingress_ports    = [22, 9090, 9100, 3000] 
 
-  tags = {
-      "StackName" = var.stack_name
-      "ClusterName" = var.cluster_name
-    }
+  stack_name = var.stack_name
+  cluster_name = var.cluster_name
 }
 
 resource "aws_instance" "prometheus" {
