@@ -15,7 +15,7 @@ module "iam_s3_policy" {
 
 resource "aws_iam_instance_profile" "ec2_instance_profile" {
   name = "ec2-instance-profile"
-  role = iam_s3_policy.ec2_role.name
+  role = module.iam_s3_policy.ec2_role.name
 }
 
 resource "aws_instance" "vectordb" {
