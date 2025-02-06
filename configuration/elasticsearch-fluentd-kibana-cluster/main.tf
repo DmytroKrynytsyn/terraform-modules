@@ -19,7 +19,7 @@ resource "aws_instance" "fluentd" {
     "StackName" = var.stack_name
     "ClusterName" = var.cluster_name
     "InstanceRole" =  var.fluentd_instance_role
-    "Name" = "${var.stack_name}-${var.cluster_name}"
+    "Name" = "${var.stack_name}-${var.cluster_name}-${var.fluentd_instance_role}"
   }
 }
 
@@ -34,7 +34,7 @@ resource "aws_instance" "kibana" {
     "StackName" = var.stack_name
     "ClusterName" = var.cluster_name
     "InstanceRole" =  var.kibana_instance_role
-    "Name" = "${var.stack_name}-${var.cluster_name}"
+    "Name" = "${var.stack_name}-${var.cluster_name}-${var.kibana_instance_role}"
   }
 }
 
@@ -49,6 +49,6 @@ resource "aws_instance" "elasticsearch" {
     "StackName" = var.stack_name
     "ClusterName" = var.cluster_name
     "InstanceRole" =  var.elasticserch_instance_role
-    "Name" = "${var.stack_name}-${var.cluster_name}"
+    "Name" = "${var.stack_name}-${var.cluster_name}-${var.elasticserch_instance_role}"
   }
 }

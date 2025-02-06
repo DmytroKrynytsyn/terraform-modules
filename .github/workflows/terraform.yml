@@ -30,92 +30,92 @@ jobs:
         run: |
           curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
 
-      - name: Terraform Init
+      - name: Terraform Init (kafka-cluster)
         run: terraform init
         working-directory: ${{ github.workspace }}/configuration/kafka-cluster
 
-      - name: Terraform Validate
+      - name: Terraform Validate (kafka-cluster)
         run: terraform validate
         working-directory: ${{ github.workspace }}/configuration/kafka-cluster
 
-      - name: TFLint
+      - name: TFLint (kafka-cluster)
         run: tflint
         working-directory: ${{ github.workspace }}/configuration/kafka-cluster
         continue-on-error: true
 
-      - name: TFSec
+      - name: TFSec (kafka-cluster)
         run: tfsec
         working-directory: ${{ github.workspace }}/configuration/kafka-cluster
         continue-on-error: true
 
-      - name: Terraform Init
+      - name: Terraform Init (elasticsearch-fluentd-kibana-cluster)
         run: terraform init
         working-directory: ${{ github.workspace }}/configuration/elasticsearch-fluentd-kibana-cluster
 
-      - name: Terraform Validate
+      - name: Terraform Validate (elasticsearch-fluentd-kibana-cluster)
         run: terraform validate
         working-directory: ${{ github.workspace }}/configuration/elasticsearch-fluentd-kibana-cluster
 
-      - name: TFLint
+      - name: TFLint (elasticsearch-fluentd-kibana-cluster)
         run: tflint
         working-directory: ${{ github.workspace }}/configuration/elasticsearch-fluentd-kibana-cluster
         continue-on-error: true
 
-      - name: TFSec
+      - name: TFSec (elasticsearch-fluentd-kibana-cluster)
         run: tfsec
         working-directory: ${{ github.workspace }}/configuration/elasticsearch-fluentd-kibana-cluster
         continue-on-error: true
 
-      - name: Terraform Init
+      - name: Terraform Init (prometheus-grafana-cluster)
         run: terraform init
         working-directory: ${{ github.workspace }}/configuration/prometheus-grafana-cluster
 
-      - name: Terraform Validate
+      - name: Terraform Validate (prometheus-grafana-cluster)
         run: terraform validate
         working-directory: ${{ github.workspace }}/configuration/prometheus-grafana-cluster
 
-      - name: TFLint
+      - name: TFLint (prometheus-grafana-cluster)
         run: tflint
         working-directory: ${{ github.workspace }}/configuration/prometheus-grafana-cluster
         continue-on-error: true
 
-      - name: TFSec
+      - name: TFSec (prometheus-grafana-cluster)
         run: tfsec
         working-directory: ${{ github.workspace }}/configuration/prometheus-grafana-cluster
         continue-on-error: true
 
-      - name: Terraform Init
+      - name: Terraform Init (redis-cluster)
         run: terraform init
         working-directory: ${{ github.workspace }}/configuration/redis-cluster
 
-      - name: Terraform Validate
+      - name: Terraform Validate (redis-cluster)
         run: terraform validate
         working-directory: ${{ github.workspace }}/configuration/redis-cluster
 
-      - name: TFLint
+      - name: TFLint (redis-cluster)
         run: tflint
         working-directory: ${{ github.workspace }}/configuration/redis-cluster
         continue-on-error: true
 
-      - name: TFSec
+      - name: TFSec (redis-cluster)
         run: tfsec
         working-directory: ${{ github.workspace }}/configuration/redis-cluster
         continue-on-error: true
 
-      - name: Terraform Init
+      - name: Terraform Init (vectordb-cluster)
         run: terraform init
         working-directory: ${{ github.workspace }}/configuration/vectordb-cluster
 
-      - name: Terraform Validate
+      - name: Terraform Validate (vectordb-cluster)
         run: terraform validate
         working-directory: ${{ github.workspace }}/configuration/vectordb-cluster
 
-      - name: TFLint
+      - name: TFLint (vectordb-cluster)
         run: tflint
         working-directory: ${{ github.workspace }}/configuration/vectordb-cluster
         continue-on-error: true
 
-      - name: TFSec
+      - name: TFSec (vectordb-cluster)
         run: tfsec
         working-directory: ${{ github.workspace }}/configuration/vectordb-cluster
         continue-on-error: true
