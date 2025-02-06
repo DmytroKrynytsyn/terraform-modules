@@ -17,8 +17,4 @@ variable "stack_name" {
 
 variable "cluster_name" {
   description = "The name of the cluster."
-}  
-
-variable "instance_role" {
-  description = "The role of the instance."
 }
