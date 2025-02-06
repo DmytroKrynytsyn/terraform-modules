@@ -23,11 +23,11 @@ variable "cluster_name" {
   description = "The name of the cluster."
 }  
 
-variable "redis_primary_instance_role" {
+variable "primary_instance_role" {
   description = "The role of the primary Redis instance."
 } 
 
-variable "redis_secondary_instance_role" {
+variable "secondary_instance_role" {
   description = "The role of the secondary Redis instance."
 } 
 
