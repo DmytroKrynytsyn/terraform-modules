@@ -48,7 +48,7 @@ resource "aws_instance" "elasticsearch" {
   tags = {
     "StackName" = var.stack_name
     "ClusterName" = var.cluster_name
-    "InstanceRole" =  var.elasticserch_instance_role
-    "Name" = "${var.stack_name}-${var.cluster_name}-${var.elasticserch_instance_role}"
+    "InstanceRole" =  var.elasticsearch_instance_role
+    "Name" = "${var.stack_name}-${var.cluster_name}-${var.elasticsearch_instance_role}"
   }
 }
