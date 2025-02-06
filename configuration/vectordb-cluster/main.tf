@@ -13,11 +13,6 @@ module "security_group" {
 module "iam_s3_policy" {
   source = "git::https://github.com/DmytroKrynytsyn/terraform-modules.git//infrastructure/aws-iam-policy-s3"
   s3_bucket_name = var.s3_bucket_name
-
-  tags = {
-      "StackName" = var.stack_name
-      "ClusterName" = var.cluster_name
-    }
 }
 
 resource "aws_iam_instance_profile" "ec2_instance_profile" {
