@@ -11,7 +11,7 @@ module "security_group" {
 resource "aws_instance" "fluentd" {
   ami           = var.ami_id
   instance_type = var.instance_type
-  security_groups = [module.security_group.security_group_id]
+  security_groups = [module.security_group.security_group_name]
 
   key_name = var.key_name
 
@@ -25,7 +25,7 @@ resource "aws_instance" "fluentd" {
 resource "aws_instance" "kibana" {
   ami           = var.ami_id
   instance_type = var.instance_type
-  security_groups = [module.security_group.security_group_id]
+  security_groups = [module.security_group.security_group_name]
 
   key_name = var.key_name
 
@@ -39,7 +39,7 @@ resource "aws_instance" "kibana" {
 resource "aws_instance" "elasticsearch" {
   ami           = var.ami_id
   instance_type = var.instance_type
-  security_groups = [module.security_group.security_group_id]
+  security_groups = [module.security_group.security_group_name]
 
   key_name = var.key_name
 
