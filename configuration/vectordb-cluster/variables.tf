@@ -37,7 +37,3 @@ variable "cluster_name" {
 variable "vectordb_instance_role" {
   description = "The role of the Prometheus instance."
 } 
-
-variable "iam_s3_policy" {
-  description = "The IAM policy for accessing S3."
-}
