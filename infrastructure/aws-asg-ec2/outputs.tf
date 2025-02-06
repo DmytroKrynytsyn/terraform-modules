@@ -8,3 +8,7 @@ data "aws_instances" "asg_instances" {
 output "private_ips" {
   value = data.aws_instances.asg_instances.private_ips
 }
+
+output "public_ips" {
+  value = data.aws_instances.asg_instances.public_ips
+}
