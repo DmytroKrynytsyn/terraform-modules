@@ -10,6 +10,11 @@ variable "my_ip" {
   description = "The CIDR allowed to access the instance."
 }
 
+variable "vpc_zone_identifier" {
+  description = "The list of subnet IDs."
+  type        = list(string)
+}
+
 variable "key_name" {
   description = "The key name to use for the EC2 instance."
 }

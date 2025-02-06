@@ -16,7 +16,7 @@ module "asg-ec2" {
   max_amount_of_instances = var.amount_of_brokers * 2
   instance_type = var.instance_type
   ami_id = var.ami_id
-  vpc_zone_identifier = data.aws_subnets.default.ids
+  vpc_zone_identifier = var.vpc_zone_identifier
 
   key_name = var.key_name
 
