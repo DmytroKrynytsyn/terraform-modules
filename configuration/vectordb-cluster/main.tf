@@ -25,7 +25,7 @@ resource "aws_iam_instance_profile" "ec2_instance_profile" {
   role = iam_s3_policy.ec2_role.name
 }
 
-resource "aws_instance" "vector_db" {
+resource "aws_instance" "vectordb" {
   ami           = var.ami_id
   instance_type = var.instance_type
   security_groups = [aws_security_group.security_group.name]
