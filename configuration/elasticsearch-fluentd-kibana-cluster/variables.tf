@@ -14,7 +14,6 @@ variable "my_ip" {
   description = "The CIDR allowed to access the instance."
 }
 
-
 variable "key_name" {
   description = "The key name to use for the EC2 instance."
 }

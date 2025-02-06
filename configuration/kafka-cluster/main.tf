@@ -1,7 +1,7 @@
 module "security_group" {
   source = "git::https://github.com/DmytroKrynytsyn/terraform-modules.git//infrastructure/aws-security-group"
   my_ip    = var.my_ip
-  vpc_id   = data.aws_vpc.default.id
+  vpc_id   = var.vpc_id
   ingress_ports    = [22, 9092, 9093] 
 
   stack_name = var.stack_name

@@ -35,7 +35,7 @@ resource "aws_instance" "vectordb" {
   tags = {
     "StackName" = var.stack_name
     "ClusterName" = var.cluster_name
-    "InstanceRole" =  var.vectordb_instance_role
+    "InstanceRole" =  var.instance_role
     "Name" = "${var.stack_name}-${var.cluster_name}"
   }
 }

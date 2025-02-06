@@ -1,9 +1,17 @@
+variable "vpc_id" {
+  description = "The ID of the VPC."
+}
+
 variable "ami_id" {
   description = "The AMI ID to use for the EC2 instance."
 }
 
 variable "my_ip" {
   description = "The CIDR allowed to access the instance."
+}
+
+variable "key_name" {
+  description = "The key name to use for the EC2 instance."
 }
 
 variable "instance_type" {
@@ -14,10 +22,6 @@ variable "instance_type" {
 variable "amount_of_brokers" {
   description = "Cluster size."
   default     = 3
-}
-
-variable "key_name" {
-  description = "The key name to use for the EC2 instance."
 }
 
 variable "stack_name" {

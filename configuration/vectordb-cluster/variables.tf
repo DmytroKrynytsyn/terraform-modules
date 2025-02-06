@@ -12,6 +12,7 @@ variable "my_ip" {
 
 variable "instance_type" {
   description = "The instance type to use for the EC2 instance."
+  default = "t2.micro"
 }
 
 variable "root_volume_size" {
@@ -34,6 +35,6 @@ variable "cluster_name" {
   description = "The name of the cluster."
 }  
 
-variable "vectordb_instance_role" {
+variable "instance_role" {
   description = "The role of the Prometheus instance."
 } 
