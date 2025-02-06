@@ -12,7 +12,7 @@ This module creates an Elasticsearch, Fluentd, and Kibana cluster on AWS.
 
 This module creates a Kafka cluster using AWS EC2 Auto Scaling Group (ASG) and Launch Template.
 
-### [Prometheus and Grafana Cluster Module](configuration/prometeus-grafana-cluster/README.md)
+### [Prometheus and Grafana Cluster Module](configuration/prometheus-grafana-cluster/README.md)
 
 This module creates a Prometheus and Grafana cluster on AWS.
 

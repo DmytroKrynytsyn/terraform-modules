@@ -68,20 +68,20 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-        working-directory: ${{ github.workspace }}/configuration/prometeus-grafana-cluster
+        working-directory: ${{ github.workspace }}/configuration/prometheus-grafana-cluster
 
       - name: Terraform Validate
         run: terraform validate
-        working-directory: ${{ github.workspace }}/configuration/prometeus-grafana-cluster
+        working-directory: ${{ github.workspace }}/configuration/prometheus-grafana-cluster
 
       - name: TFLint
         run: tflint
-        working-directory: ${{ github.workspace }}/configuration/prometeus-grafana-cluster
+        working-directory: ${{ github.workspace }}/configuration/prometheus-grafana-cluster
         continue-on-error: true
 
       - name: TFSec
         run: tfsec
-        working-directory: ${{ github.workspace }}/configuration/prometeus-grafana-cluster
+        working-directory: ${{ github.workspace }}/configuration/prometheus-grafana-cluster
         continue-on-error: true
 
       - name: Terraform Init

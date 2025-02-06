@@ -1,4 +1,4 @@
-### [configuration/prometeus-grafana-cluster/README.md](configuration/prometeus-grafana-cluster/README.md)
+### [configuration/prometheus-grafana-cluster/README.md](configuration/prometheus-grafana-cluster/README.md)
 ```md
 # Prometheus and Grafana Cluster Module
 
@@ -8,7 +8,7 @@ This Terraform module creates a Prometheus and Grafana cluster on AWS.
 
 ```hcl
 module "prometheus_grafana_cluster" {
-  source = "../path/to/prometeus-grafana-cluster"
+  source = "../path/to/prometheus-grafana-cluster"
 
   ami_id           = "ami-12345678"
   instance_type    = "t2.micro"
