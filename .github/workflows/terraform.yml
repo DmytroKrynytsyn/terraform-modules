@@ -119,3 +119,21 @@ jobs:
         run: tfsec
         working-directory: ${{ github.workspace }}/configuration/vectordb-cluster
         continue-on-error: true
+        
+      - name: Terraform Init (aws-security-group)
+        run: terraform init
+        working-directory: ${{ github.workspace }}/infrastructure/aws-security-group
+
+      - name: Terraform Validate (aws-security-group)
+        run: terraform validate
+        working-directory: ${{ github.workspace }}/infrastructure/aws-security-group
+
+      - name: TFLint (aws-security-group)
+        run: tflint
+        working-directory: ${{ github.workspace }}/infrastructure/aws-security-group
+        continue-on-error: true
+
+      - name: TFSec (aws-security-group)
+        run: tfsec
+        working-directory: ${{ github.workspace }}/infrastructure/aws-security-group
+        continue-on-error: true
