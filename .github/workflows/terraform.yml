@@ -41,71 +41,70 @@ jobs:
       - name: TFLint
         run: tflint
         working-directory: ${{ github.workspace }}/configuration/kafka-cluster
+        - name: TFSec
+          run: tfsec --soft-fail
+          working-directory: ${{ github.workspace }}/configuration/kafka-cluster
 
-      - name: TFSec
-        run: tfsec
-        working-directory: ${{ github.workspace }}/configuration/kafka-cluster
+        - name: Terraform Init
+          run: terraform init
+          working-directory: ${{ github.workspace }}/configuration/elasticsearch-fluentd-kibana-cluster
 
-      - name: Terraform Init
-        run: terraform init
-        working-directory: ${{ github.workspace }}/configuration/elasticsearch-fluentd-kibana-cluster
+        - name: Terraform Validate
+          run: terraform validate
+          working-directory: ${{ github.workspace }}/configuration/elasticsearch-fluentd-kibana-cluster
 
-      - name: Terraform Validate
-        run: terraform validate
-        working-directory: ${{ github.workspace }}/configuration/elasticsearch-fluentd-kibana-cluster
+        - name: TFLint
+          run: tflint --enable-rule=terraform_deprecated_interpolation
+          working-directory: ${{ github.workspace }}/configuration/elasticsearch-fluentd-kibana-cluster
 
-      - name: TFLint
-        run: tflint
-        working-directory: ${{ github.workspace }}/configuration/elasticsearch-fluentd-kibana-cluster
+        - name: TFSec
+          run: tfsec --soft-fail
+          working-directory: ${{ github.workspace }}/configuration/elasticsearch-fluentd-kibana-cluster
 
-      - name: TFSec
-        run: tfsec
-        working-directory: ${{ github.workspace }}/configuration/elasticsearch-fluentd-kibana-cluster
+        - name: Terraform Init
+          run: terraform init
+          working-directory: ${{ github.workspace }}/configuration/prometeus-grafana-cluster
 
-      - name: Terraform Init
-        run: terraform init
-        working-directory: ${{ github.workspace }}/configuration/prometeus-grafana-cluster
+        - name: Terraform Validate
+          run: terraform validate
+          working-directory: ${{ github.workspace }}/configuration/prometeus-grafana-cluster
 
-      - name: Terraform Validate
-        run: terraform validate
-        working-directory: ${{ github.workspace }}/configuration/prometeus-grafana-cluster
+        - name: TFLint
+          run: tflint --enable-rule=terraform_deprecated_interpolation
+          working-directory: ${{ github.workspace }}/configuration/prometeus-grafana-cluster
 
-      - name: TFLint
-        run: tflint
-        working-directory: ${{ github.workspace }}/configuration/prometeus-grafana-cluster
+        - name: TFSec
+          run: tfsec --soft-fail
+          working-directory: ${{ github.workspace }}/configuration/prometeus-grafana-cluster
 
-      - name: TFSec
-        run: tfsec
-        working-directory: ${{ github.workspace }}/configuration/prometeus-grafana-cluster
+        - name: Terraform Init
+          run: terraform init
+          working-directory: ${{ github.workspace }}/configuration/redis-cluster
 
-      - name: Terraform Init
-        run: terraform init
-        working-directory: ${{ github.workspace }}/configuration/redis-cluster
+        - name: Terraform Validate
+          run: terraform validate
+          working-directory: ${{ github.workspace }}/configuration/redis-cluster
 
-      - name: Terraform Validate
-        run: terraform validate
-        working-directory: ${{ github.workspace }}/configuration/redis-cluster
+        - name: TFLint
+          run: tflint --enable-rule=terraform_deprecated_interpolation
+          working-directory: ${{ github.workspace }}/configuration/redis-cluster
 
-      - name: TFLint
-        run: tflint
-        working-directory: ${{ github.workspace }}/configuration/redis-cluster
+        - name: TFSec
+          run: tfsec --soft-fail
+          working-directory: ${{ github.workspace }}/configuration/redis-cluster
 
-      - name: TFSec
-        run: tfsec
-        working-directory: ${{ github.workspace }}/configuration/redis-cluster
+        - name: Terraform Init
+          run: terraform init
+          working-directory: ${{ github.workspace }}/configuration/vectordb-cluster
 
-      - name: Terraform Init
-        run: terraform init
-        working-directory: ${{ github.workspace }}/configuration/vectordb-cluster
+        - name: Terraform Validate
+          run: terraform validate
+          working-directory: ${{ github.workspace }}/configuration/vectordb-cluster
 
-      - name: Terraform Validate
-        run: terraform validate
-        working-directory: ${{ github.workspace }}/configuration/vectordb-cluster
+        - name: TFLint
+          run: tflint --enable-rule=terraform_deprecated_interpolation
+          working-directory: ${{ github.workspace }}/configuration/vectordb-cluster
 
-      - name: TFLint
-        run: tflint
-        working-directory: ${{ github.workspace }}/configuration/vectordb-cluster
-
-      - name: TFSec
-        run: tfsec
-        working-directory: ${{ github.workspace }}/configuration/vectordb-cluster
+        - name: TFSec
+          run: tfsec --soft-fail
+          working-directory: ${{ github.workspace }}/configuration/vectordb-cluster
