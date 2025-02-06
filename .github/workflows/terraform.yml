@@ -137,3 +137,39 @@ jobs:
         run: tfsec
         working-directory: ${{ github.workspace }}/infrastructure/aws-security-group
         continue-on-error: true
+
+      - name: Terraform Init (aws-iam-policy-s3)
+        run: terraform init
+        working-directory: ${{ github.workspace }}/infrastructure/aws-iam-policy-s3
+
+      - name: Terraform Validate (aws-iam-policy-s3)
+        run: terraform validate
+        working-directory: ${{ github.workspace }}/infrastructure/aws-iam-policy-s3
+
+      - name: TFLint (aws-iam-policy-s3)
+        run: tflint
+        working-directory: ${{ github.workspace }}/infrastructure/aws-iam-policy-s3
+        continue-on-error: true
+
+      - name: TFSec (aws-iam-policy-s3)
+        run: tfsec
+        working-directory: ${{ github.workspace }}/infrastructure/aws-iam-policy-s3
+        continue-on-error: true
+
+      - name: Terraform Init (aws-asg-ec2)
+        run: terraform init
+        working-directory: ${{ github.workspace }}/infrastructure/aws-asg-ec2
+
+      - name: Terraform Validate (aws-asg-ec2)
+        run: terraform validate
+        working-directory: ${{ github.workspace }}/infrastructure/aws-asg-ec2
+
+      - name: TFLint (aws-asg-ec2)
+        run: tflint
+        working-directory: ${{ github.workspace }}/infrastructure/aws-asg-ec2
+        continue-on-error: true
+
+      - name: TFSec (aws-asg-ec2)
+        run: tfsec
+        working-directory: ${{ github.workspace }}/infrastructure/aws-asg-ec2
+        continue-on-error: true
