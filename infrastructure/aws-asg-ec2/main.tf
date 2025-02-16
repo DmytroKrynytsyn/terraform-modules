@@ -11,7 +11,7 @@ resource "aws_launch_template" "kafka_brokers" {
     tags = {
       Name = "${var.stack_name}-${var.cluster_name}"
       
-      Role = var.instance_role
+      InstanceRole = var.instance_role
       Stack = var.stack_name
       Cluster = var.cluster_name
     }
