@@ -12,8 +12,8 @@ resource "aws_launch_template" "kafka_brokers" {
       Name = "${var.stack_name}-${var.cluster_name}"
       
       InstanceRole = var.instance_role
-      Stack = var.stack_name
-      Cluster = var.cluster_name
+      StackName = var.stack_name
+      ClusterName = var.cluster_name
     }
   }
 }
