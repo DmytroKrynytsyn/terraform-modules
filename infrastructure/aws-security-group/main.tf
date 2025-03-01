@@ -1,3 +1,6 @@
+data "aws_vpc" "selected" {
+  id = var.vpc_id
+}
 
 resource "aws_security_group" "sg" {
 
@@ -10,7 +13,7 @@ resource "aws_security_group" "sg" {
       to_port     = ingress.value
       protocol    = "tcp"
       self        = true
-      cidr_blocks  = [var.my_ip]
+      cidr_blocks  = [var.my_ip, data.aws_vpc.selected.cidr_block]
     }
   }
 
