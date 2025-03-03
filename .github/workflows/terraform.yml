@@ -119,6 +119,24 @@ jobs:
         run: tfsec
         working-directory: ${{ github.workspace }}/configuration/vectordb-cluster
         continue-on-error: true
+
+      - name: Terraform Init (telegraf-gateway)
+        run: terraform init
+        working-directory: ${{ github.workspace }}/configuration/telegraf-gateway
+
+      - name: Terraform Validate (telegraf-gateway)
+        run: terraform validate
+        working-directory: ${{ github.workspace }}/configuration/telegraf-gateway
+
+      - name: TFLint (telegraf-gateway)
+        run: tflint
+        working-directory: ${{ github.workspace }}/configuration/telegraf-gateway
+        continue-on-error: true
+
+      - name: TFSec (telegraf-gateway)
+        run: tfsec
+        working-directory: ${{ github.workspace }}/configuration/telegraf-gateway
+        continue-on-error: true
         
       - name: Terraform Init (aws-security-group)
         run: terraform init
