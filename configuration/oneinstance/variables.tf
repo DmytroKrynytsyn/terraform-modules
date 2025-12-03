@@ -2,11 +2,6 @@ variable "ami_id" {
   description = "The AMI ID to use for the EC2 instance."
 }
 
-variable "vpc_zone_identifier" {
-  description = "The list of subnet IDs."
-  type        = list(string)
-}
-
 variable "key_name" {
   description = "The key name to use for the EC2 instance."
 }

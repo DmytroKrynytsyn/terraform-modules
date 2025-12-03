@@ -13,7 +13,6 @@ module "asg_ec2" {
   desired_amount_of_instances = 2
   min_amount_of_instances     = 1
   max_amount_of_instances     = 3
-  vpc_zone_identifier         = ["subnet-12345678", "subnet-87654321"]
   security_group_ids          = ["sg-12345678"]
   key_name                    = "my-key"
   stack_name                  = "my-stack"

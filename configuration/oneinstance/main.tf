@@ -14,7 +14,6 @@ module "asg-ec2" {
   max_amount_of_instances = 1
   instance_type = var.instance_type
   ami_id = var.ami_id
-  vpc_zone_identifier = var.vpc_zone_identifier
 
   key_name = var.key_name
 
