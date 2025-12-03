@@ -1,4 +1,4 @@
-resource "aws_launch_template" "kafka_brokers" {
+resource "aws_launch_template" "specs" {
   
   image_id = var.ami_id
   instance_type = var.instance_type
@@ -27,7 +27,7 @@ resource "aws_autoscaling_group" "instanes" {
   max_size             = var.max_amount_of_instances
 
   launch_template {
-    id      = aws_launch_template.kafka_brokers.id
+    id      = aws_launch_template.specs.id
     version = "$Latest"
   }
 
