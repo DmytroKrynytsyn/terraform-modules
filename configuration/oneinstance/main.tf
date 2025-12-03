@@ -25,3 +25,17 @@ module "asg-ec2" {
   cluster_name = var.cluster_name
   instance_role =  var.instance_role
 }
+
+resource "local_file" "ansible_inventory" {
+  filename = "${path.module}/inventory.ini"
+  content  = <<-EOF
+[servers]
+oneinstance ansible_host=${module.asg-ec2.public_ips[0]} 
+
+[all:vars]
+ansible_connection=ssh
+ansible_python_interpreter=/usr/bin/python3
+ansible_user=admin 
+ansible_ssh_private_key_file=../../cks.pem
+EOF
+}
