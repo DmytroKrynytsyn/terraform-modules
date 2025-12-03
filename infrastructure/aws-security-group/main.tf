@@ -7,7 +7,7 @@ data "aws_vpc" "default" {
 }
 
 data "http" "my_ip" {
-  url = "https://ifconfig.me/ip"
+  url = "https://api.ipify.org/ip"
 }
 
 resource "aws_security_group" "sg" {
