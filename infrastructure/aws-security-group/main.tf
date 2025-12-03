@@ -1,10 +1,18 @@
-data "aws_vpc" "selected" {
-  id = var.vpc_id
+provider "aws" {
+  region = var.aws_region  
+}
+
+data "aws_vpc" "default" {
+  default = true
+}
+
+data "http" "my_ip" {
+  url = "https://ifconfig.me/ip"
 }
 
 resource "aws_security_group" "sg" {
 
-  vpc_id = var.vpc_id
+  vpc_id = data.aws_vpc.id
 
   dynamic "ingress" {
     for_each = var.ingress_ports
@@ -13,7 +21,7 @@ resource "aws_security_group" "sg" {
       to_port     = ingress.value
       protocol    = "tcp"
       self        = true
-      cidr_blocks  = [var.my_ip, data.aws_vpc.selected.cidr_block]
+      cidr_blocks  = [var.my_ip, data.aws_vpc.default.cidr_block, "${chomp(data.http.my_ip.response_body)}/32"]
     }
   }
 
