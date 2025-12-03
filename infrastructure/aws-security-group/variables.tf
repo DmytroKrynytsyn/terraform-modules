@@ -1,3 +1,8 @@
+variable "aws_region" {
+  description = "The AWS region to launch resources in."
+}
+
+
 variable "ingress_ports" {
   description = "The list of ports to open in the security group."
   type        = list(number)
