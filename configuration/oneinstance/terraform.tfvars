@@ -1,6 +1,6 @@
 aws_region        = "eu-central-1"
 availability_zone = "eu-central-1a"
-ami_id            = "ami-00060fac2f8c42d30"
+ami_id            = "ami-00ebb2b898eebe380"
 
 key_name = "cks"
 
