@@ -1,7 +1,3 @@
-variable "vpc_zone_identifier" {
-  description = "A list of subnet IDs to launch resources in."
-  type        = list(string)
-}
 
 variable "ami_id" {
   description = "The AMI ID to use for the instances"
