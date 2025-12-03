@@ -2,7 +2,7 @@ aws_region        = "eu-central-1"
 availability_zone = "eu-central-1a"
 ami_id            = "ami-00060fac2f8c42d30"
 
-key_name = "my-key"
+key_name = "cks"
 
 instance_type = "t2.xlarge"
 
