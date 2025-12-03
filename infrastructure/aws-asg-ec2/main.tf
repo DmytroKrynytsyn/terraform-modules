@@ -1,3 +1,7 @@
+data "aws_vpc" "default" {
+  default = true
+}
+
 resource "aws_launch_template" "specs" {
   
   image_id = var.ami_id
@@ -19,6 +23,14 @@ resource "aws_launch_template" "specs" {
 }
 
 
+data "aws_subnets" "all" {
+  filter {
+    name   = "vpc-id"
+    values = [data.aws_vpc.default.id]
+  }
+}
+
+
 resource "aws_autoscaling_group" "instanes" {
   name = "${var.stack_name}-${var.cluster_name}"
 
@@ -31,5 +43,5 @@ resource "aws_autoscaling_group" "instanes" {
     version = "$Latest"
   }
 
-  vpc_zone_identifier = var.vpc_zone_identifier
+  vpc_zone_identifier = data.aws_subnets.all.ids
 }
