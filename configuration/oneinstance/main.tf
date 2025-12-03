@@ -2,6 +2,8 @@ module "security_group" {
   source = "git::https://github.com/DmytroKrynytsyn/terraform-modules.git//infrastructure/aws-security-group"
   ingress_ports    = [22, 8428, 8429] 
 
+  aws_region = var.aws_region
+
   stack_name = var.stack_name
   cluster_name = var.cluster_name
 }

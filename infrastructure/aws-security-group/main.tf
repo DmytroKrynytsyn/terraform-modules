@@ -12,7 +12,7 @@ data "http" "my_ip" {
 
 resource "aws_security_group" "sg" {
 
-  vpc_id = data.aws_vpc.id
+  vpc_id = data.aws_vpc.default.id
 
   dynamic "ingress" {
     for_each = var.ingress_ports
